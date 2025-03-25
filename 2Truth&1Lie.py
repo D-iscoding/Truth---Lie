@@ -1,27 +1,27 @@
 import random
 
-# Intro
-print("2 TRUTHS AND A LIE")
+print("TWO TRUTH AND A LIE!")
 
-# 2 Truths and a lie
-facts = {
-    "I can speak four different languages", # Lie
-    # You need 3 facts
-}
+facts = [
+    "I love pizza.",
+    "I have a pet tiger.",
+    "I can speak three languages."
+]
 
-# Ask if the fact is true or falsh 
-guess = input("Is this fact Truth or False? (T/F)").lower()
+answers = [True, False, True]
+correct_guesses = 0
 
-# Check player's guess
-if guess == 'T' and random_fact != "I can speak four different languages.": # type: ignore
-    print("Correct!")
-elif guess == 'F' and random_fact != "I can speak four different languages.": # type: ignore
-    print ("Correct!")
-else:
-    print("Incorrect!")
+for turn in range(3):
+    fact_number = random.randint(0, 3)
+    print("Fact " + str(turn + 1) + ": " + facts[fact_number])
 
-# Show results
-print(f"/nYou got {correct_guesses} out of 1 correct!") # type: ignore
+    guess = input("Do you think this is a truth or a lie? (Enter 'y' or 'n'): ").lower()
 
-# Play the game again
-play_again = input("Play Again? (Y/N): ").lower()
+    if (guess == 'y' and answers[fact_number] == True) or (guess == 'n' and answers[fact_number] == False):
+        print("Correct!")
+        correct_guesses += 1
+    else:
+        print("Incorrect!")
+
+print("You got " + str(correct_guesses) + " out of 3 correct!")
+print("GAME OVER!")
